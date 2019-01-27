@@ -23,16 +23,21 @@ prompts(promptConfig)
 
   //start dungeon
   console.log(`${player.name} enters `, dungeon.description);
+  enterRoom(dungeon);
+});
 
-  makeChoice(dungeon.doors)
+
+const enterRoom = (room) => {
+
+  makeChoice(room.doors)
   .then((response) => {
     // response is an array of choices, we limit the choices to 1
     if (response.value.length !== 0) {
       console.log(`${player.name} enters `, response.value[0].description);
+      enterRoom(response.value[0]);
     } else {
       console.error('choice invalid!');
     }
   });
 
-});
-
+}
