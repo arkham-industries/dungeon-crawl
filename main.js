@@ -17,10 +17,6 @@ const promptConfig = {
 prompts(promptConfig)
 .then((response)=>{
 
-  response =  {
-    value: nick
-  }
-
   // options menu
   player.name = response.value;
   console.log(player)
