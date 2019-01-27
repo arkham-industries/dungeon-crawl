@@ -15,7 +15,8 @@ module.exports = (doors) => {
     type: 'multiselect',
     name: 'value',
     message: 'Where do you want to go?',
-    choices: choices
+    choices: choices,
+    max: 1
   };
 
   return prompts(promptConfig);
