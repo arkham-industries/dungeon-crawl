@@ -5,7 +5,7 @@ const sunDoor = {
   room: null
 };
 
-const obliskDoor = {
+const obeliskDoor = {
   name: 'Obelisk symbol.',
   room: null
 };
@@ -19,7 +19,7 @@ const startDoor = {
 // ROOMS
 
 const sunRoom = {
-  description: 'A bright friendly room.',
+  description: 'a bright friendly room.',
   items: [],
   enemies: [],
   doors: [],
@@ -27,29 +27,65 @@ const sunRoom = {
 
 
 const obeliskRoom = {
-  description: 'An black, oily room.',
+  description: 'a black, oily room.',
   items: [],
   enemies: [],
   doors: [],
 };
 
 const startRoom = {
-  description: 'A dark murky room.',
+  description: 'a dark murky room.',
   items: [],
   enemies: [],
   doors: [],
 };
 
+//Items
+const spear = {
+  name: 'spear',
+  description: 'A rusty spear',
+  init: 1,
+  damage: 6,
+};
+
+const sword = {
+  name: 'sword',
+  description: 'A shoddy sword',
+  init: 0,
+  damage: 6,
+};
+
+//Enemies
+const imp = {
+  description: "A winged fiend",
+  health: 50,
+  ac: 5,
+  init: 3,
+  toHit: 1,
+  damage: 6,
+  damageBonus:0,
+};
+
 // LINK ROOMS WITH DOORS
-startRoom.doors.push(obliskDoor);
+startRoom.doors.push(obeliskDoor);
 startRoom.doors.push(sunDoor);
 
 sunRoom.doors.push(startDoor);
 obeliskRoom.doors.push(startDoor);
 
 // give all doors a room
-obliskDoor.room = obeliskRoom;
+obeliskDoor.room = obeliskRoom;
 sunDoor.room = sunRoom;
 startDoor.room = startRoom;
+
+//enemy location
+obeliskRoom.enemies.push(imp);
+
+//item location
+sunRoom.items.push(spear);
+startRoom.items.push(sword);
+
+
+//console.log(obeliskRoom.enemies)
 
 module.exports = startRoom;
